@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MARY HAIR & BEAUTY SALON | Cardiff Market</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .font-poppins { font-family: 'Poppins', sans-serif; }
+        .font-jakarta { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .glassmorphism { background: rgba(255, 255, 255, 0.65); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.25); }
+        .nav-blur { background: rgba(255, 255, 255, 0.80); backdrop-filter: blur(16px); }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        .animate-fade-in { animation: fadeIn 0.6s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased overflow-x-hidden">
+
+    <nav class="nav-blur w-full fixed top-0 z-40 border-b border-slate-100/80 shadow-sm shadow-slate-200/10">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-rose-400 to-fuchsia-500 flex items-center justify-center shadow-md shadow-rose-100 group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-scissors text-white text-base"></i>
+                </div>
+                <div>
+                    <h1 class="font-jakarta font-bold text-slate-900 tracking-wide text-sm md:text-base leading-tight">MARY HAIR & BEAUTY</h1>
+                    <span class="text-[10px] md:text-xs text-rose-500 font-semibold tracking-wider block">CARDIFF MARKET</span>
+                </div>
+            </a>
+
+            <div class="hidden md:flex items-center gap-8 font-medium text-xs text-slate-600 tracking-wider">
+                <a href="#home" class="hover:text-rose-500 transition-colors">HOME</a>
+                <a href="#services" class="hover:text-rose-500 transition-colors">SERVICES</a>
+                <a href="#about" class="hover:text-rose-500 transition-colors">ABOUT</a>
+                <a href="#testimonials" class="hover:text-rose-500 transition-colors">REVIEWS</a>
+                <a href="#contact" class="hover:text-rose-500 transition-colors">LOCATION</a>
+            </div>
+
+            <button onclick="openModal('bookingModal')" class="px-5 py-2.5 bg-gradient-to-r from-rose-500 to-fuchsia-600 hover:from-rose-600 hover:to-fuchsia-700 text-white rounded-xl text-xs font-bold shadow-lg shadow-rose-200 transition-all hover:scale-105 flex items-center gap-2">
+                <i class="fa-solid fa-calendar-check text-xs"></i> BOOK NOW
+            </button>
+        </div>
+    </nav>
+
+    <main class="pt-20">
+
+        <section id="home" class="relative min-h-[80vh] flex items-center justify-center px-6 py-24 overflow-hidden">
+            <div class="absolute top-0 -left-40 w-96 h-96 bg-rose-200/40 rounded-full blur-[120px] -z-10"></div>
+            <div class="absolute bottom-0 -right-40 w-96 h-96 bg-fuchsia-200/40 rounded-full blur-[120px] -z-10"></div>
+
+            <div class="max-w-4xl mx-auto text-center space-y-6 animate-fade-in">
+                <span class="px-4 py-1.5 bg-rose-50 text-rose-600 rounded-full text-[10px] font-bold tracking-widest inline-block border border-rose-100">WOMEN-OWNED PREMIUM SALON</span>
+                <h2 class="font-jakarta font-extrabold text-4xl sm:text-5xl md:text-6xl text-slate-900 tracking-tight leading-tight">
+                    Elevate Your Glow in the <br class="hidden sm:block">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-fuchsia-600">Heart of Cardiff</span>
+                </h2>
+                <p class="max-w-2xl mx-auto text-slate-500 text-sm md:text-base font-light leading-relaxed">
+                    Step into Mary Hair & Beauty Salon inside Cardiff Market. Experience expert balayage, luxury facials, precision cuts, and tailored pampering by our masterful team.
+                </p>
+                <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
+                    <button onclick="openModal('bookingModal')" class="px-8 py-3.5 bg-rose-500 hover:bg-rose-600 text-white rounded-xl text-xs font-bold shadow-xl shadow-rose-200 transition-all hover:-translate-y-1">
+                        RESERVE APPOINTMENT
+                    </button>
+                    <button onclick="openModal('contactModal')" class="px-8 py-3.5 bg-white border border-slate-200 hover:bg-slate-50 text-slate-600 rounded-xl text-xs font-bold shadow-sm transition-all hover:-translate-y-1">
+                        GET DIRECTIONS
+                    </button>
+                </div>
+
+                <div class="pt-12 flex flex-wrap items-center justify-center gap-8 text-slate-400">
+                    <div class="flex items-center gap-2"><i class="fa-solid fa-star text-amber-400"></i> <span class="text-xs font-medium text-slate-600">4.7 Star Google Rating</span></div>
+                    <div class="flex items-center gap-2"><i class="fa-solid fa-certificate text-rose-400"></i> <span class="text-xs font-medium text-slate-600">Certified Master Stylists</span></div>
+                    <div class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-fuchsia-400"></i> <span class="text-xs font-medium text-slate-600">Cardiff Market Entrance</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="max-w-7xl mx-auto px-6 py-20 space-y-12">
+            <div class="text-center space-y-2">
+                <h3 class="font-jakarta font-bold text-2xl md:text-3xl text-slate-900 tracking-tight">Our Signature Services</h3>
+                <p class="text-xs text-slate-400 font-medium tracking-wide">CLICK A SERVICE TO VIEW DETAILS & BOOK INSTANTLY</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div onclick="openServiceModal('Balayage & Hair Coloring', '£125.00', 'Bespoke dimensional hair coloring, babylights, and full balayage treatments customized to your skin tone and hair structure.', 'https://images.unsplash.com/photo-1560869711-7dcd1422eb72?auto=format&fit=crop&w=600&q=80')" class="glassmorphism p-6 rounded-2xl cursor-pointer hover:shadow-xl transition-all hover:-translate-y-2 border border-slate-100 flex flex-col justify-between h-full space-y-4">
+                    <div class="w-12 h-12 rounded-xl bg-rose-50 text-rose-500 flex items-center justify-center text-xl shrink-0">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+                    <div class="space-y-2">
+                        <h4 class="font-bold text-slate-900 text-sm">Balayage & Hair Coloring</h4>
+                        <p class="text-slate-500 text-xs font-light leading-relaxed">Bespoke dimensional color, babylights, and tailored techniques for modern radiance.</p>
+                    </div>
+                    <div class="pt-2 flex justify-between items-center text-xs font-semibold text-rose-600 border-t border-slate-100/60 pt-4">
+                        <span>STARTING AT £125</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </div>
+                </div>
+                <div onclick="openServiceModal('Premium Facials & Hydration Glow', '£85.00', 'Rejuvenating deep-tissue facial treatments, extractions, medical-grade moisture infusions, and lymphatic drainage for an ultimate glow.', 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=600&q=80')" class="glassmorphism p-6 rounded-2xl cursor-pointer hover:shadow-xl transition-all hover:-translate-y-2 border border-slate-100 flex flex-col justify-between h-full space-y-4">
+                    <div class="w-12 h-12 rounded-xl bg-fuchsia-50 text-fuchsia-500 flex items-center justify-center text-xl shrink-0">
+                        <i class="fa-solid fa-face-smile-beam"></i>
+                    </div>
+                    <div class="space-y-2">
+                        <h4 class="font-bold text-slate-900 text-sm">Premium Facials & Glow</h4>
+                        <p class="text-slate-500 text-xs font-light leading-relaxed">Rejuvenating hydration facials, medical-grade moisture infusions, and deep pore cleansing.</p>
+                    </div>
+                    <div class="pt-2 flex justify-between items-center text-xs font-semibold text-fuchsia-600 border-t border-slate-100/60 pt-4">
+                        <span>STARTING AT £85</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </div>
+                </div>
+                <div onclick="openServiceModal('Bridal Makeup & Event Styling', '£150.00', 'Stunning hair and makeup packages for weddings, proms, or editorial photoshoots by our premium event design specialists.', 'https://images.unsplash.com/photo-1487412720507-e7ab37603c4c?auto=format&fit=crop&w=600&q=80')" class="glassmorphism p-6 rounded-2xl cursor-pointer hover:shadow-xl transition-all hover:-translate-y-2 border border-slate-100 flex flex-col justify-between h-full space-y-4">
+                    <div class="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-500 flex items-center justify-center text-xl shrink-0">
+                        <i class="fa-solid fa-brush"></i>
+                    </div>
+                    <div class="space-y-2">
+                        <h4 class="font-bold text-slate-900 text-sm">Bridal Makeup & Styling</h4>
+                        <p class="text-slate-500 text-xs font-light leading-relaxed">Stunning up-dos, flawless makeup, and luxury styling arrays for your special moments.</p>
+                    </div>
+                    <div class="pt-2 flex justify-between items-center text-xs font-semibold text-indigo-600 border-t border-slate-100/60 pt-4">
+                        <span>STARTING AT £150</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="bg-white/50 border-y border-slate-100">
+            <div class="max-w-7xl mx-auto px-6 py-24 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div class="space-y-6">
+                    <span class="px-4 py-1.5 bg-slate-100 text-slate-600 rounded-full text-[10px] font-bold tracking-widest inline-block">OUR COMMITMENT</span>
+                    <h3 class="font-jakarta font-bold text-2xl md:text-3xl text-slate-900 tracking-tight leading-tight">Mastering Glamour & Hair Integrity since 2018</h3>
+                    <p class="text-slate-500 text-xs md:text-sm font-light leading-relaxed">
+                        Mary Hair & Beauty Salon is a women-owned business located perfectly inside the main entrance of Cardiff Market. We pride ourselves on using premium, cruelty-free, organic products to ensure your hair and skin are treated with the highest standard of health and luxury.
+                    </p>
+                    <p class="text-slate-500 text-xs md:text-sm font-light leading-relaxed">
+                        Whether you are looking for a quick maintenance cut, threading, or a completely new transformation, our masterfully certified professionals are here to craft exactly what you deserve.
+                    </p>
+                    <div class="pt-4 flex items-center gap-6">
+                        <div>
+                            <h4 class="font-extrabold text-2xl text-slate-900 font-jakarta">76+</h4>
+                            <span class="text-[10px] text-slate-400 font-semibold tracking-wider block mt-0.5">GOOGLE REVIEWS</span>
+                        </div>
+                        <div>
+                            <h4 class="font-extrabold text-2xl text-slate-900 font-jakarta">4.7</h4>
+                            <span class="text-[10px] text-slate-400 font-semibold tracking-wider block mt-0.5">AVERAGE RATING</span>
+                        </div>
+                        <div>
+                            <h4 class="font-extrabold text-2xl text-slate-900 font-jakarta">100%</h4>
+                            <span class="text-[10px] text-slate-400 font-semibold tracking-wider block mt-0.5">SATISFACTION</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="absolute inset-4 bg-gradient-to-tr from-rose-100 to-fuchsia-100 rounded-3xl -z-10 translate-x-4 translate-y-4"></div>
+                    <img src="https://images.unsplash.com/photo-1560066986-1d182283948e?auto=format&fit=crop&w=800&q=80" alt="Salon Interior" class="w-full rounded-3xl shadow-2xl object-cover h-[450px]">
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="max-w-7xl mx-auto px-6 py-20 space-y-12">
+            <div class="text-center space-y-2">
+                <h3 class="font-jakarta font-bold text-2xl md:text-3xl text-slate-900 tracking-tight">What Our Clients Say</h3>
+                <p class="text-xs text-slate-400 font-medium tracking-wide">VERIFIED CUSTOMER EXPERIENCES</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="glassmorphism p-6 rounded-2xl border border-slate-100 space-y-4">
+                    <div class="flex items-center gap-1 text-amber-400 text-xs">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-600 text-xs font-light italic leading-relaxed">
+                        "Absolutely love this salon! Mary is incredibly talented and perfectly understood what I needed for my balayage. Highly recommended if you are visiting Cardiff."
+                    </p>
+                    <div class="flex items-center gap-3 pt-2 border-t border-slate-100/80 pt-4">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=80&h=80" class="w-8 h-8 rounded-xl object-cover">
+                        <div>
+                            <h5 class="text-xs font-bold text-slate-800">Chloe Henderson</h5>
+                            <span class="text-[9px] text-slate-400 font-semibold">Local Guide</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="glassmorphism p-6 rounded-2xl border border-slate-100 space-y-4">
+                    <div class="flex items-center gap-1 text-amber-400 text-xs">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-600 text-xs font-light italic leading-relaxed">
+                        "The premium facial treatment was absolutely glowing and deeply hydrating. Such a welcoming women-owned business located beautifully inside Cardiff Market."
+                    </p>
+                    <div class="flex items-center gap-3 pt-2 border-t border-slate-100/80 pt-4">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=80&h=80" class="w-8 h-8 rounded-xl object-cover">
+                        <div>
+                            <h5 class="text-xs font-bold text-slate-800">Fatima Al-Farsi</h5>
+                            <span class="text-[9px] text-slate-400 font-semibold">Regular Customer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="bg-slate-900 text-white">
+            <div class="max-w-7xl mx-auto px-6 py-24 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <span class="px-4 py-1.5 bg-rose-500/20 text-rose-300 rounded-full text-[10px] font-bold tracking-widest inline-block border border-rose-500/30">FIND US</span>
+                    <h3 class="font-jakarta font-bold text-2xl md:text-3xl tracking-tight leading-tight">Visit Mary Hair & Beauty</h3>
+                    <p class="text-slate-300 text-xs md:text-sm font-light leading-relaxed">
+                        Drop in or book your slot. We are conveniently situated in the heart of the city, perfectly accessible within Cardiff Market.
+                    </p>
+                    
+                    <div class="space-y-4 pt-4 text-xs font-medium tracking-wide">
+                        <div class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-xl bg-slate-800 text-rose-400 flex items-center justify-center shrink-0"><i class="fa-solid fa-location-dot"></i></div>
+                            <div>
+                                <h5 class="text-slate-400 text-[10px] font-bold uppercase tracking-wider mb-0.5">Location Address</h5>
+                                <p>Cardiff Market, 6B Saint Mary Street <br>(By the Main Entrance of), Cardiff CF10 1AT</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-xl bg-slate-800 text-fuchsia-400 flex items-center justify-center shrink-0"><i class="fa-solid fa-phone"></i></div>
+                            <div>
+                                <h5 class="text-slate-400 text-[10px] font-bold uppercase tracking-wider mb-0.5">Direct Phone</h5>
+                                <p class="hover:text-rose-400 transition-colors"><a href="tel:07440333447">07440 333447</a></p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-xl bg-slate-800 text-emerald-400 flex items-center justify-center shrink-0"><i class="fa-solid fa-clock"></i></div>
+                            <div>
+                                <h5 class="text-slate-400 text-[10px] font-bold uppercase tracking-wider mb-0.5">Opening Hours</h5>
+                                <p>Open Monday to Saturday from 10:00 AM</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button onclick="openModal('bookingModal')" class="px-6 py-3 bg-gradient-to-r from-rose-500 to-fuchsia-600 hover:from-rose-600 hover:to-fuchsia-700 text-white font-bold rounded-xl text-xs shadow-xl shadow-rose-950 transition-all hover:scale-105">
+                        ENQUIRE / BOOK APPOINTMENT
+                    </button>
+                </div>
+                
+                <div class="w-full h-[400px] rounded-3xl overflow-hidden border border-slate-800 shadow-2xl relative">
+                    <iframe class="w-full h-full border-0" loading="lazy" allowfullscreen src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.250550505193!2d-3.181285023495475!3d51.48135111440096!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x486e1cb027e4e0d9%3A0x6b4c1071d2b8618e!2sCardiff%20Market!5e0!3m2!1sen!2suk!4v1686000000000!2m1!2s51.48135111440096%2C%20-3.181285023495475"></iframe>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-950 border-t border-slate-900/60 text-slate-500 py-10 text-center text-[11px] space-y-4 font-medium tracking-wider">
+        <div class="flex justify-center gap-6">
+            <a href="#home" class="hover:text-rose-400 transition-colors">HOME</a>
+            <a href="#services" class="hover:text-rose-400 transition-colors">SERVICES</a>
+            <a href="#about" class="hover:text-rose-400 transition-colors">ABOUT</a>
+            <a href="#contact" class="hover:text-rose-400 transition-colors">CONTACT</a>
+        </div>
+        <div class="flex justify-center gap-4 text-sm text-slate-600">
+            <a href="https://wa.me/447440333447" target="_blank" class="hover:text-emerald-400"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="tel:07440333447" class="hover:text-rose-400"><i class="fa-solid fa-phone"></i></a>
+        </div>
+        <p>&copy; 2026 MARY HAIR & BEAUTY SALON CARDIFF. ALL RIGHTS RESERVED.</p>
+    </footer>
+
+    <div id="modal-backdrop" onclick="closeAllModals()" class="hidden fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50"></div>
+
+    <div id="serviceDetailsModal" class="hidden fixed bottom-0 left-0 right-0 md:inset-0 md:m-auto w-full md:max-w-lg bg-white md:rounded-2xl rounded-t-3xl shadow-2xl z-50 flex flex-col max-h-[85vh] animate-slide-up md:animate-fade-in border-t md:border-slate-100 overflow-hidden">
+        <div class="relative h-56 shrink-0">
+            <img id="modal-service-img" src="" class="w-full h-full object-cover">
+            <button onclick="closeModal('serviceDetailsModal')" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/90 text-slate-700 flex items-center justify-center shadow-lg hover:bg-white"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="flex-1 overflow-y-auto p-6 space-y-6">
+            <div>
+                <span class="text-[9px] font-bold tracking-widest text-rose-500 uppercase">Featured Service</span>
+                <h3 id="modal-service-name" class="font-jakarta font-extrabold text-lg md:text-xl text-slate-900 mt-1">Service Name</h3>
+            </div>
+            <p id="modal-service-desc" class="text-slate-600 text-xs font-light leading-relaxed">
+                Service detail descriptions displayed elegantly.
+            </p>
+            <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 flex items-center justify-between">
+                <div>
+                    <span class="text-[9px] font-bold text-slate-400 uppercase block">Starting Price</span>
+                    <h4 id="modal-service-price" class="font-bold text-rose-600 text-base">£0.00</h4>
+                </div>
+                <button onclick="closeModal('serviceDetailsModal'); openModal('bookingModal')" class="px-5 py-2.5 bg-gradient-to-r from-rose-500 to-fuchsia-600 text-white rounded-xl text-xs font-bold shadow-lg hover:scale-105 transition-all">
+                    BOOK SERVICE NOW
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="bookingModal" class="hidden fixed bottom-0 left-0 right-0 md:inset-0 md:m-auto w-full md:max-w-md bg-white md:rounded-2xl rounded-t-3xl shadow-2xl z-50 flex flex-col max-h-[85vh] animate-slide-up md:animate-fade-in border-t md:border-slate-100">
+        <div class="p-6 border-b border-slate-100 flex items-center justify-between">
+            <div>
+                <h3 class="font-jakarta font-bold text-slate-900 text-sm tracking-tight">Reserve Appointment</h3>
+                <span class="text-[9px] text-slate-400 font-semibold tracking-wide uppercase">Mary Hair & Beauty Cardiff Market</span>
+            </div>
+            <button onclick="closeModal('bookingModal')" class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <form id="leadForm" onsubmit="handleFormSubmit(event)" class="flex-1 overflow-y-auto p-6 space-y-4">
+            <div>
+                <label class="text-[10px] font-bold text-slate-500 uppercase block mb-1.5">Full Name</label>
+                <input type="text" required placeholder="Jessica Williams" class="w-full bg-slate-50/70 border border-slate-200 px-4 py-2.5 rounded-xl text-xs outline-none focus:ring-2 focus:ring-rose-400 transition-all">
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+                <div>
+                    <label class="text-[10px] font-bold text-slate-500 uppercase block mb-1.5">Phone Number</label>
+                    <input type="tel" required placeholder="+44..." class="w-full bg-slate-50/70 border border-slate-200 px-4 py-2.5 rounded-xl text-xs outline-none focus:ring-2 focus:ring-rose-400 transition-all">
+                </div>
+                <div>
+                    <label class="text-[10px] font-bold text-slate-500 uppercase block mb-1.5">Email Address</label>
+                    <input type="email" required placeholder="hello@..." class="w-full bg-slate-50/70 border border-slate-200 px-4 py-2.5 rounded-xl text-xs outline-none focus:ring-2 focus:ring-rose-400 transition-all">
+                </div>
+            </div>
+            <div>
+                <label class="text-[10px] font-bold text-slate-500 uppercase block mb-1.5">Select Service</label>
+                <select class="w-full bg-slate-50/70 border border-slate-200 px-4 py-2.5 rounded-xl text-xs outline-none focus:ring-2 focus:ring-rose-400 text-slate-600">
+                    <option>Balayage & Hair Coloring</option>
+                    <option>Premium Facials & Hydration Glow</option>
+                    <option>Bridal Makeup & Event Styling</option>
+                    <option>Eyebrow Threading & Tint</option>
+                    <option>Ladies / Gents Haircut</option>
+                </select>
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+                <div>
+                    <label class="text-[10px] font-bold text-slate-500 uppercase block mb-1.5">Preferred Date</label>
+                    <input type="date" required class="w-full bg-slate-50/70 border border-slate-200 px-4 py-2.5 rounded-xl text-xs outline-none focus:ring-2 focus:ring-rose-400">
+                </div>
+                <div>
+                    <label class="text-[10px] font-bold text-slate-500 uppercase block mb-1.5">Preferred Time</label>
+                    <input type="time" required class="w-full bg-slate-50/70 border border-slate-200 px-4 py-2.5 rounded-xl text-xs outline-none focus:ring-2 focus:ring-rose-400">
+                </div>
+            </div>
+            <div>
+                <label class="text-[10px] font-bold text-slate-500 uppercase block mb-1.5">Message / Inquiries</label>
+                <textarea rows="2" placeholder="Let us know about allergies, specific color notes, etc." class="w-full bg-slate-50/70 border border-slate-200 px-4 py-2.5 rounded-xl text-xs outline-none focus:ring-2 focus:ring-rose-400 transition-all"></textarea>
+            </div>
+            <button type="submit" class="w-full py-3.5 bg-gradient-to-r from-rose-500 to-fuchsia-600 hover:from-rose-600 hover:to-fuchsia-700 text-white font-extrabold rounded-xl text-xs shadow-md shadow-rose-200 tracking-wider">
+                CONFIRM RESERVATION REQUEST
+            </button>
+        </form>
+    </div>
+
+    <div id="contactModal" class="hidden fixed bottom-0 left-0 right-0 md:inset-0 md:m-auto w-full md:max-w-md bg-white md:rounded-2xl rounded-t-3xl shadow-2xl z-50 flex flex-col max-h-[85vh] animate-slide-up md:animate-fade-in border-t md:border-slate-100">
+        <div class="p-6 border-b border-slate-100 flex items-center justify-between">
+            <div>
+                <h3 class="font-jakarta font-bold text-slate-900 text-sm tracking-tight">Location & Directions</h3>
+                <span class="text-[9px] text-slate-400 font-semibold tracking-wide uppercase">Cardiff Market Indoor Map Data</span>
+            </div>
+            <button onclick="closeModal('contactModal')" class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="p-6 space-y-6">
+            <div class="w-full h-56 rounded-2xl overflow-hidden border border-slate-100 shadow-sm relative">
+                <iframe class="w-full h-full border-0" loading="lazy" allowfullscreen src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.250550505193!2d-3.181285023495475!3d51.48135111440096!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x486e1cb027e4e0d9%3A0x6b4c1071d2b8618e!2sCardiff%20Market!5e0!3m2!1sen!2suk!4v1686000000000!2m1!2s51.48135111440096%2C%20-3.181285023495475"></iframe>
+            </div>
+            <div class="space-y-2.5 text-xs font-medium text-slate-700 bg-slate-50 p-4 rounded-xl">
+                <div class="flex items-center gap-2 text-slate-900 font-bold"><i class="fa-solid fa-map-pin text-rose-500"></i> Mary Hair & Beauty Salon</div>
+                <div class="text-[11px] text-slate-500 leading-normal pl-5">Cardiff Market, 6B Saint Mary Street ( By the Main Entrance of ), Cardiff CF10 1AT</div>
+                <div class="flex items-center gap-2 text-rose-500 pt-1 border-t border-slate-100 mt-2"><i class="fa-solid fa-phone"></i> <a href="tel:07440333447">07440 333447</a></div>
+            </div>
+            <a href="https://maps.google.com/?daddr=Cardiff+Market,+6B+Saint+Mary+Street+Cardiff+CF10+1AT" target="_blank" class="w-full py-3 block text-center bg-rose-500 hover:bg-rose-600 text-white font-bold rounded-xl text-xs shadow-sm transition-all">
+                OPEN IN GOOGLE MAPS
+            </a>
+        </div>
+    </div>
+
+    <div id="successModal" class="hidden fixed inset-0 m-auto w-80 h-fit bg-white rounded-3xl shadow-2xl z-50 flex flex-col items-center p-6 text-center space-y-4 animate-fade-in border border-slate-100">
+        <div class="w-16 h-16 rounded-full bg-emerald-50 text-emerald-500 flex items-center justify-center text-2xl animate-bounce">
+            <i class="fa-solid fa-circle-check"></i>
+        </div>
+        <div>
+            <h3 class="font-bold text-slate-900 text-base">Request Submitted Perfect!</h3>
+            <p class="text-[10px] text-slate-400 mt-1">Your reservation data safely synced. We will call or WhatsApp message you shortly to confirm your booking.</p>
+        </div>
+        <button onclick="closeModal('successModal')" class="w-full py-2.5 bg-slate-100 hover:bg-slate-200 font-semibold text-slate-600 rounded-xl text-xs transition-colors">Acknowledge</button>
+    </div>
+
+    <script>
+        // Popup / Modals State handling functions
+        function openModal(modalId) {
+            document.getElementById('modal-backdrop').classList.remove('hidden');
+            document.getElementById(modalId).classList.remove('hidden');
+            
+            // Auto lock body scrolling when modal sheet pulls up
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById('modal-backdrop').classList.add('hidden');
+            document.getElementById(modalId).classList.add('hidden');
+            
+            // Restore body scrolling upon overlay reset
+            document.body.style.overflow = 'auto';
+        }
+
+        function closeAllModals() {
+            document.getElementById('modal-backdrop').classList.add('hidden');
+            
+            const modals = document.querySelectorAll('#serviceDetailsModal, #bookingModal, #contactModal, #successModal');
+            modals.forEach(modal => modal.classList.add('hidden'));
+            
+            document.body.style.overflow = 'auto';
+        }
+
+        // Service Modal Dynamic Details Injection Data-Driven
+        function openServiceModal(name, price, desc, imgUrl) {
+            document.getElementById('modal-service-name').innerText = name;
+            document.getElementById('modal-service-price').innerText = price;
+            document.getElementById('modal-service-desc').innerText = desc;
+            document.getElementById('modal-service-img').src = imgUrl;
+            
+            openModal('serviceDetailsModal');
+        }
+
+        // Webhook Submission / Apps Script or webhook API mock
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            closeModal('bookingModal');
+            
+            // Simulating API/Webhook latency load
+            setTimeout(() => {
+                openModal('successModal');
+            }, 300);
+            
+            // Production App Script / Form Hook can be initialized exactly like this:
+            // const formData = new FormData(event.target);
+            // fetch('YOUR_APPS_SCRIPT_WEB_APP_URL', { method: 'POST', body: formData });
+        }
+    </script>
+
+</body>
+</html>
