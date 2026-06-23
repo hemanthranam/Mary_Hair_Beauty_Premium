@@ -699,7 +699,7 @@
     </footer>
 
     <script>
-        // Replace with your actual Google Apps Script Web App URL after deployment
+        // Paste your deployed /exec Web App URL here
         const scriptURL = 'https://script.google.com/macros/s/AKfycbxu2IiOwsY12yfOXt0fPEqCOWPkhI0MO3KRl_lMy33zCgFg9GEx8jnWFtLeM9mkAXMI/exec';
 
         const leadForm = document.getElementById('leadForm');
@@ -714,17 +714,17 @@
             formResponse.innerText = '';
 
             const formData = new FormData(leadForm);
-            
-            // Send as application/x-www-form-urlencoded or plain query string, or JSON depending on GAS doPost event parameter parsing. 
-            // Let's use simple fetch via URLSearchParams to ensure easy parsing in Apps Script doPost(e)
-            const params = new URLSearchParams();
-            for (const pair of formData) {
-                params.append(pair[0], pair[1]);
+            const data = {};
+            for (let [key, value] of formData.entries()) {
+                data[key] = value;
             }
 
             fetch(scriptURL, {
                 method: 'POST',
-                body: params
+                headers: {
+                    'Content-Type': 'text/plain;charset=utf-8'
+                },
+                body: JSON.stringify(data)
             })
             .then(response => response.json())
             .then(data => {
