@@ -721,62 +721,60 @@
 </footer>
 
 <script>
-  // IMPORTANT:
-  // After deploying Code.gs as a Web App, paste your /exec URL below
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbwtl7LnUutedSjn8cePsssRCaahaMyI-kFwfyR_ZgYo51SWLu4vVLHOw1nVKcr9UcN9/exec';
+const scriptURL = 'https://script.google.com/macros/s/AKfycbwtl7LnUutedSjn8cePsssRCaahaMyI-kFwfyR_ZgYo51SWLu4vVLHOw1nVKcr9UcN9/exec';
 
-  const leadForm = document.getElementById('leadForm');
-  const submitBtn = document.getElementById('submitBtn');
-  const formResponse = document.getElementById('form-response');
+const leadForm = document.getElementById('leadForm');
+const submitBtn = document.getElementById('submitBtn');
+const formResponse = document.getElementById('form-response');
 
-  leadForm.addEventListener('submit', async function(e) {
+leadForm.addEventListener('submit', async function(e) {
     e.preventDefault();
 
     submitBtn.disabled = true;
-    submitBtn.textContent = 'Submitting...';
-    formResponse.textContent = '';
-    formResponse.style.color = 'var(--dark)';
+    submitBtn.innerText = 'Submitting...';
+    formResponse.innerText = '';
+    formResponse.style.color = '#8b5a77';
+
+    const formData = new FormData(leadForm);
+    const data = Object.fromEntries(formData.entries());
 
     try {
-      const formData = new FormData(leadForm);
-      const data = Object.fromEntries(formData.entries());
+        const response = await fetch(scriptURL, {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'text/plain;charset=utf-8'
+            }
+        });
 
-      const response = await fetch(scriptURL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'text/plain;charset=utf-8'
-        },
-        body: JSON.stringify(data)
-      });
+        const text = await response.text();
+        console.log('RAW RESPONSE:', text);
 
-      const text = await response.text();
-      let result;
+        let result;
+        try {
+            result = JSON.parse(text);
+        } catch (parseError) {
+            throw new Error('Invalid JSON response from Apps Script: ' + text);
+        }
 
-      try {
-        result = JSON.parse(text);
-      } catch (err) {
-        throw new Error('Server returned an invalid response: ' + text);
-      }
-
-      if (result.result === 'success') {
-        formResponse.style.color = 'var(--success)';
-        formResponse.textContent = 'Thank you — your inquiry has been submitted successfully. We’ll be in touch shortly.';
-        leadForm.reset();
-      } else {
-        formResponse.style.color = 'var(--error)';
-        formResponse.textContent = result.message || 'Something went wrong. Please try again.';
-      }
+        if (result.result === 'success') {
+            formResponse.style.color = '#8b5a77';
+            formResponse.innerText = 'Thank you! Your inquiry has been submitted successfully.';
+            leadForm.reset();
+        } else {
+            formResponse.style.color = '#b32424';
+            formResponse.innerText = result.message || 'Submission failed. Please try again.';
+        }
 
     } catch (error) {
-      console.error('Form submit error:', error);
-      formResponse.style.color = 'var(--error)';
-      formResponse.textContent = error.message || 'An error occurred. Please try again or contact us directly.';
+        console.error('FORM ERROR:', error);
+        formResponse.style.color = '#b32424';
+        formResponse.innerText = 'An error occurred. Please try again or contact us directly.';
     } finally {
-      submitBtn.disabled = false;
-      submitBtn.textContent = 'Submit Inquiry';
+        submitBtn.disabled = false;
+        submitBtn.innerText = 'Submit Inquiry';
     }
-  });
+});
 </script>
-
 </body>
 </html>
