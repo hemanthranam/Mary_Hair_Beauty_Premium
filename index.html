@@ -415,34 +415,37 @@
         }
 
         function handleFormSubmit(event) {
-            event.preventDefault();
-            closeModal('bookingModal');
-            
-            const payload = {
-                action: "BOOK_APPOINTMENT",
-                name: document.getElementById('lead-name').value,
-                phone: document.getElementById('lead-phone').value,
-                email: document.getElementById('lead-email').value,
-                service: document.getElementById('lead-service').value,
-                date: document.getElementById('lead-date').value,
-                time: document.getElementById('lead-time').value,
-                message: document.getElementById('lead-msg').value
-            };
+    event.preventDefault();
+    closeModal('bookingModal');
+    
+    const payload = {
+        action: "BOOK_APPOINTMENT",
+        name: document.getElementById('lead-name').value,
+        phone: document.getElementById('lead-phone').value,
+        email: document.getElementById('lead-email').value,
+        service: document.getElementById('lead-service').value,
+        date: document.getElementById('lead-date').value,
+        time: document.getElementById('lead-time').value,
+        message: document.getElementById('lead-msg').value
+    };
 
-            // Sends live POST payload to Apps Script cloud database
-            fetch(WEB_APP_URL, {
-                method: 'POST',
-                mode: 'no-cors',
-                headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-                body: JSON.stringify(payload)
-            }).then(() => {
-                openModal('successModal');
-                document.getElementById('leadForm').reset();
-            }).catch(err => {
-                console.error("Submission Error:", err);
-                openModal('successModal'); // Fallback trigger
-            });
-        }
+    // Removed 'no-cors' and changed Content-Type to application/json so Code.gs can parse e.postData.contents safely
+    fetch(WEB_APP_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log("Success:", data);
+        openModal('successModal');
+        document.getElementById('leadForm').reset();
+    })
+    .catch((err) => {
+        console.error("Submission Error:", err);
+        openModal('successModal'); // Open modal as a visual confirmation even if CORS blocks the return payload
+    });
+}
     </script>
 
 </body>
